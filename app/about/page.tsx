@@ -46,10 +46,10 @@ const team = [
 ];
 
 const stats = [
-  { label: '完成專案', value: '2000+' },
-  { label: '客戶滿意度', value: '99%' },
-  { label: '準時交付率', value: '98%' },
-  { label: '服務年數', value: '5年' },
+  { label: '完成專案', value: '50+' },
+  { label: '客戶滿意度', value: '100%' },
+  { label: '準時交付率', value: '100%' },
+  { label: '服務年數', value: '2年' },
 ];
 
 const values = [

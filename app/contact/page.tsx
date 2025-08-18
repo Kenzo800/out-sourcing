@@ -6,9 +6,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { 
-  PhoneIcon, 
-  EnvelopeIcon,
-  ChatBubbleLeftRightIcon,
   ClockIcon 
 } from '@heroicons/react/24/outline';
 import Footer from '../components/Footer';
@@ -42,24 +39,28 @@ const urgencyLevels = [
   { value: 'urgent', label: '非常緊急 (24小時內)', color: 'text-red-600' },
 ];
 
+const TelegramIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="h-6 w-6 text-blue-600"
+  >
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+);
+
 const contactInfo = [
   {
-    icon: EnvelopeIcon,
-    title: '電子郵件',
-    content: 'contact@cs-homework.com',
-    description: '24小時內回覆',
-  },
-  {
-    icon: ChatBubbleLeftRightIcon,
-    title: 'Line 客服',
-    content: 'cs-homework-help',
-    description: '即時線上諮詢',
+    icon: TelegramIcon,
+    title: 'Telegram 客服',
+    content: '@payfortimecs',
+    description: '24小時即時回覆',
   },
   {
     icon: ClockIcon,
     title: '服務時間',
-    content: '週一至週日',
-    description: '9:00 AM - 11:00 PM',
+    content: '全年無休',
+    description: '我訓醒就會覆你 >3<',
   },
 ];
 
@@ -110,13 +111,20 @@ export default function ContactPage() {
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 感謝您的諮詢，我們將在24小時內回覆您的需求。
-                如有緊急事項，請直接聯絡我們的Line客服。
+                如有緊急事項，請直接聯絡我們的Telegram客服。
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <button
                   onClick={() => setSubmitSuccess(false)}
-                  className="rounded-md bg-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 transition-colors"
+                  className="rounded-md bg-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 transition-colors flex items-center gap-2"
                 >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                  </svg>
                   繼續諮詢
                 </button>
                 <a href="/" className="text-lg font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
@@ -290,11 +298,11 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                   >
                     <option value="">請選擇預算範圍（可選）</option>
-                    <option value="under-1000">$1000 以下</option>
-                    <option value="1000-2000">$1000 - $2000</option>
-                    <option value="2000-3000">$2000 - $3000</option>
-                    <option value="3000-5000">$3000 - $5000</option>
-                    <option value="over-5000">$5000 以上</option>
+                    <option value="under-500">$500 以下</option>
+                    <option value="500-1000">$500 - $1000</option>
+                    <option value="1000-1600">$1000 - $1600</option>
+                    <option value="1600-2000">$1600 - $2000</option>
+                    <option value="over-2000">$2000 以上</option>
                   </select>
                 </div>
 
@@ -318,8 +326,15 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                 >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                  </svg>
                   {isSubmitting ? '送出中...' : '送出諮詢'}
                 </button>
               </form>

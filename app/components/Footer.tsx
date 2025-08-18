@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { CodeBracketIcon } from '@heroicons/react/24/solid';
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 const footerNavigation = {
   services: [
@@ -43,15 +42,15 @@ export default function Footer() {
               專業的CS課業代寫服務，提供高品質的大學生程式設計作業協助。
               我們致力於幫助學生在學習過程中獲得更好的理解和成績。
             </p>
-            <div className="flex space-x-6">
-              <div className="flex items-center space-x-2 text-gray-300">
-                <EnvelopeIcon className="h-5 w-5" />
-                <span className="text-sm">contact@cs-homework.com</span>
-              </div>
-            </div>
             <div className="flex items-center space-x-2 text-gray-300">
-              <PhoneIcon className="h-5 w-5" />
-              <span className="text-sm">Line ID: cs-homework-help</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-5 w-5"
+              >
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+              <span className="text-sm">Telegram: @payfortimecs</span>
             </div>
           </div>
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
@@ -100,7 +99,7 @@ export default function Footer() {
         <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <p className="text-xs leading-5 text-gray-400">
-              &copy; 2024 CS代寫專家. 版權所有.
+              &copy; 2025 CS功課代做服務. 版權所有.
             </p>
             <p className="mt-4 md:mt-0 text-xs leading-5 text-gray-400">
               本服務僅供學習參考，請遵守學術誠信原則

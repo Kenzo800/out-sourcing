@@ -23,9 +23,9 @@ const services = [
     description: '從基礎語法到企業級應用開發，包含Spring Boot、Maven、Gradle等框架。',
     icon: CodeBracketIcon,
     pricing: [
-      { level: '基礎作業', price: '$800-1200', description: '基本語法、迴圈、陣列、函數' },
-      { level: '物件導向', price: '$1200-1800', description: '類別設計、繼承、多型、介面' },
-      { level: '進階專案', price: '$1800-3000', description: 'Spring Boot、資料庫整合、API開發' },
+      { level: '基礎作業', price: '$200-500', description: '基本語法、迴圈、陣列、函數' },
+      { level: '物件導向', price: '$500-1600', description: '類別設計、繼承、多型、介面' },
+      { level: '進階專案', price: '視需求而定', description: 'Spring Boot、資料庫整合、API開發' },
     ],
     features: [
       '基礎語法教學',
@@ -42,9 +42,9 @@ const services = [
     description: '全方位Python開發服務，涵蓋web開發、數據分析、機器學習等領域。',
     icon: CommandLineIcon,
     pricing: [
-      { level: '基礎作業', price: '$600-1000', description: '語法基礎、資料處理、檔案操作' },
-      { level: 'Web 開發', price: '$1000-2000', description: 'Django/Flask、API設計、資料庫' },
-      { level: '數據科學', price: '$1500-2500', description: '機器學習、數據分析、視覺化' },
+      { level: '基礎作業', price: '$200-500', description: '語法基礎、資料處理、檔案操作' },
+      { level: '數據科學', price: '視需求而定', description: '機器學習、數據分析、視覺化' },
+      { level: 'Web 開發', price: '視需求而定', description: 'Django/Flask、API設計、資料庫' },
     ],
     features: [
       'Django/Flask 框架',
@@ -61,9 +61,9 @@ const services = [
     description: '系統程式設計專家，精通記憶體管理、效能優化和底層程式開發。',
     icon: CpuChipIcon,
     pricing: [
-      { level: '基礎作業', price: '$900-1300', description: '語法基礎、指標、陣列、結構' },
-      { level: '進階程式', price: '$1300-2200', description: 'STL、模板、物件導向' },
-      { level: '系統程式', price: '$2200-3500', description: '系統呼叫、多執行緒、網路程式' },
+      { level: '基礎作業', price: '$300-600', description: '語法基礎、指標、陣列、結構' },
+      { level: '進階程式', price: '$600-1600', description: 'CLI、模板、物件導向' },
+      { level: '系統程式', price: '視需求而定', description: '系統呼叫、多執行緒、網路程式' },
     ],
     features: [
       '指標與記憶體管理',
@@ -80,9 +80,9 @@ const services = [
     description: '現代化網頁開發，包含前端框架、後端API、資料庫設計和部署。',
     icon: GlobeAltIcon,
     pricing: [
-      { level: '前端開發', price: '$1000-1800', description: 'React/Vue.js、CSS、JavaScript' },
-      { level: '後端開發', price: '$1200-2000', description: 'Node.js、Express、資料庫' },
-      { level: '全端專案', price: '$2000-4000', description: '完整網站、部署、優化' },
+      { level: '前端開發', price: '視需求而定', description: 'React/Vue.js、CSS、JavaScript' },
+      { level: '後端開發', price: '視需求而定', description: 'Node.js、Express、資料庫' },
+      { level: '全端專案', price: '視需求而定', description: '完整網站、部署、優化' },
     ],
     features: [
       'React/Vue.js 前端',
@@ -99,9 +99,9 @@ const services = [
     description: '深入理解各種資料結構和演算法，包含複雜度分析和最佳化技巧。',
     icon: ChartBarIcon,
     pricing: [
-      { level: '基礎結構', price: '$700-1200', description: '陣列、串列、堆疊、佇列' },
-      { level: '進階結構', price: '$1200-1800', description: '樹、圖、雜湊表、堆積' },
-      { level: '演算法設計', price: '$1500-2500', description: '動態規劃、圖論、最佳化' },
+      { level: '基礎結構', price: '$400-800', description: '陣列、串列、堆疊、佇列' },
+      { level: '進階結構', price: '視需求而定', description: '樹、圖、雜湊表、堆積' },
+      { level: '演算法設計', price: '視需求而定', description: '動態規劃、圖論、最佳化' },
     ],
     features: [
       '基礎資料結構',
@@ -118,9 +118,9 @@ const services = [
     description: '專業資料庫設計與優化，涵蓋關聯式和非關聯式資料庫。',
     icon: CircleStackIcon,
     pricing: [
-      { level: 'SQL 基礎', price: '$800-1200', description: 'SQL語法、查詢、正規化' },
-      { level: '資料庫設計', price: '$1200-2000', description: 'ER圖、索引、效能調校' },
-      { level: '進階應用', price: '$1800-3000', description: 'NoSQL、分散式、大數據' },
+      { level: 'SQL 基礎', price: '$400-800', description: 'SQL語法、查詢、正規化' },
+      { level: '資料庫設計', price: '視需求而定', description: 'ER圖、索引、效能調校' },
+      { level: '進階應用', price: '視需求而定', description: 'NoSQL、分散式、大數據' },
     ],
     features: [
       'MySQL/PostgreSQL',
@@ -211,7 +211,7 @@ export default function ServicesPage() {
                     <h4 className="text-lg font-semibold text-gray-900 mb-4">服務內容</h4>
                     <ul className="grid grid-cols-2 gap-2">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center text-sm">
+                        <li key={feature} className="flex items-center text-sm text-gray-600">
                           <CheckIcon className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
                           {feature}
                         </li>
@@ -269,8 +269,15 @@ export default function ServicesPage() {
               <div className="mt-8 flex items-center justify-center gap-x-6">
                 <a
                   href="/contact"
-                  className="rounded-md bg-white px-6 py-3 text-lg font-semibold text-blue-600 shadow-sm hover:bg-gray-50 transition-colors"
+                  className="rounded-md bg-white px-6 py-3 text-lg font-semibold text-blue-600 shadow-sm hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
                 >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                  </svg>
                   免費諮詢
                 </a>
                 <a href="/about" className="text-lg font-semibold leading-6 text-white hover:text-blue-100 transition-colors">

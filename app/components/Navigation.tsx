@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { CodeBracketIcon } from '@heroicons/react/24/solid';
 
 const navigation = [
@@ -11,6 +11,11 @@ const navigation = [
   { name: '文章資源', href: '/blog' },
   { name: '關於我們', href: '/about' },
   { name: '聯絡我們', href: '/contact' },
+];
+
+const legalPages = [
+  { name: '隱私政策', href: '/privacy' },
+  { name: '服務條款', href: '/terms' },
 ];
 
 // CSS Logo 組件
@@ -37,6 +42,7 @@ const CSSLogo = ({ className = "", showIcon = true }: { className?: string, show
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [legalMenuOpen, setLegalMenuOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-sm relative z-50">
@@ -62,6 +68,31 @@ export default function Navigation() {
               {item.name}
             </Link>
           ))}
+          {/* Legal Pages Dropdown */}
+          <div className="relative">
+            <button
+              type="button"
+              className="text-md font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-1"
+              onClick={() => setLegalMenuOpen(!legalMenuOpen)}
+            >
+              法律條款
+              <ChevronDownIcon className="h-4 w-4" />
+            </button>
+            {legalMenuOpen && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-1 z-50">
+                {legalPages.map((page) => (
+                  <Link
+                    key={page.name}
+                    href={page.href}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    onClick={() => setLegalMenuOpen(false)}
+                  >
+                    {page.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
@@ -81,6 +112,14 @@ export default function Navigation() {
           </a>
         </div>
       </nav>
+      {/* Legal Menu Backdrop */}
+      {legalMenuOpen && (
+        <div 
+          className="fixed inset-0 z-40"
+          onClick={() => setLegalMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <>
@@ -121,6 +160,20 @@ export default function Navigation() {
                       {item.name}
                     </Link>
                   ))}
+                  {/* Legal Pages in Mobile Menu */}
+                  <div className="pt-4 border-t border-gray-200 mt-4">
+                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">法律條款</div>
+                    {legalPages.map((page) => (
+                      <Link
+                        key={page.name}
+                        href={page.href}
+                        className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {page.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
               

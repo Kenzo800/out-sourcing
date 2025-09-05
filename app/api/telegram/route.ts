@@ -29,10 +29,17 @@ function checkRateLimit(ip: string): boolean {
 export async function POST(request: NextRequest) {
   // CORS 處理
   const origin = request.headers.get('origin');
+  const isProduction = process.env.NODE_ENV === 'production';
+  
+  // 根據環境動態設定允許的來源
   const allowedOrigins = [
-    'http://localhost:3000',
-    'https://yourdomain.com', // 替換為您的實際域名
+    'https://www.chan-codeguy.com'
   ];
+
+  if (!isProduction) {
+    allowedOrigins.push('http://localhost:3000');
+  }
+  
 
   if (origin && !allowedOrigins.includes(origin)) {
     return NextResponse.json(

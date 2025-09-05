@@ -3228,9 +3228,9 @@ Docker容器化部署提供了：
 ];
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

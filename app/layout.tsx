@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "zh_TW",
-    url: "https://cs-homework-service.com",
+    url: "https://www.chan-codeguy.com",
     title: "CS課業代寫服務 | 專業大學生程式設計作業協助",
     description: "專業的CS課業代寫服務，提供高品質的大學生程式設計作業協助。",
     siteName: "CS課業代寫服務",

@@ -99,7 +99,6 @@ const privacySections = [
 
 const contactInfo = {
   telegram: '@payfortimecs',
-  email: 'privacy@cs-homework-service.com',
   responseTime: '24小時內回覆'
 };
 

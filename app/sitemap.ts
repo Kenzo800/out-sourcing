@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://cs-homework-service.com';
+  const baseUrl = 'https://www.chan-codeguy.com';
   
   // 基本頁面
   const routes = [

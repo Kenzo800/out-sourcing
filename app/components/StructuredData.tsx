@@ -12,20 +12,9 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'CS課業代寫服務',
-        url: 'https://cs-homework-service.com',
-        logo: 'https://cs-homework-service.com/logo.png',
+        url: 'https://www.chan-codeguy.com',
+        logo: 'https://www.chan-codeguy.com/favicon.ico',
         description: '專業的CS課業代寫服務，提供高品質的大學生程式設計作業協助',
-        contactPoint: {
-          '@type': 'ContactPoint',
-          telephone: '+886-xxx-xxx-xxx',
-          contactType: 'customer service',
-          areaServed: 'TW',
-          availableLanguage: 'zh-TW'
-        },
-        sameAs: [
-          'https://www.facebook.com/cs-homework-service',
-          'https://www.instagram.com/cs-homework-service'
-        ],
         serviceArea: 'Taiwan',
         knowsAbout: [
           'Java程式設計',
@@ -53,14 +42,14 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           name: 'CS課業代寫服務',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://cs-homework-service.com/logo.png'
+            url: 'https://www.chan-codeguy.com/favicon.ico'
           }
         },
         datePublished: data.publishedAt,
         dateModified: data.publishedAt,
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': `https://cs-homework-service.com/blog/${data.slug}`
+          '@id': `https://www.chan-codeguy.com/blog/${data.slug}`
         },
         articleSection: data.category,
         keywords: data.tags?.join(', '),

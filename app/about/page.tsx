@@ -10,8 +10,8 @@ import {
 import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
-  title: '關於我們',
-  description: '專業的CS課業代寫團隊，擁有豐富的程式設計經驗和學術背景，致力於提供高品質的作業協助服務。',
+  title: '關於我們 - 香港CS功課代做',
+  description: '專業的香港大專CS課業代寫團隊，擁有豐富的程式設計經驗和學術背景，專為High Dip、Degree學生提供高品質的作業協助服務。',
 };
 
 const team = [
@@ -45,7 +45,7 @@ const values = [
   {
     icon: AcademicCapIcon,
     title: '學術專業',
-    description: '團隊成員均具備資工相關學位，深度理解學術要求和評分標準。',
+    description: '團隊成員均具備香港大專院校資工相關學位，深度理解High Dip、Degree課程的學術要求和評分標準。',
   },
   {
     icon: CheckBadgeIcon,
@@ -65,7 +65,7 @@ const values = [
   {
     icon: UserGroupIcon,
     title: '專業團隊',
-    description: '經驗豐富的工程師團隊，涵蓋各種程式語言和技術領域。',
+    description: '經驗豐富的香港工程師團隊，涵蓋各種程式語言和技術領域，熟悉大專院校課程要求。',
   },
   {
     icon: TrophyIcon,
@@ -138,12 +138,12 @@ export default function AboutPage() {
             {/* Hero Content */}
             <div className="text-center mb-16">
               <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl mb-6">
-                專業可靠的
+                香港大專
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"> CS課業夥伴</span>
               </h1>
               <p className="mt-6 text-xl leading-8 text-gray-300 max-w-3xl mx-auto">
-                我們是一群熱愛程式設計的專業工程師，致力於幫助學生在CS學習路上獲得更好的成績和理解。
-                憑藉深厚的技術功底和豐富的教學經驗，為每位客戶提供最專業的服務。
+                我們是專為香港大專院校學生服務的專業工程師團隊，致力於幫助High Dip、Degree學生在CS學習路上獲得更好的成績和理解。
+                憑藉深厚的技術功底和豐富的香港教育經驗，為每位客戶提供最專業的服務。
               </p>
             </div>
 
@@ -205,7 +205,7 @@ export default function AboutPage() {
               專業團隊
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              我們的核心團隊來自各五湖四海，每位成員都在特定領域有深度專精。
+              我們的核心團隊來自香港各大專院校，每位成員都具備相關學位並在特定領域有深度專精。
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-8 lg:grid-cols-4">
@@ -301,7 +301,7 @@ export default function AboutPage() {
               準備開始合作了嗎？
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              聯絡我們獲取免費諮詢，讓專業團隊為您的CS學習之路提供最強支援。
+              聯絡我們獲取免費諮詢，讓專業團隊為您的香港大專CS學習之路提供最強支援。
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a

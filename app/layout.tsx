@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "CS課業代寫服務 | 專業大學生程式設計作業協助",
-    template: "%s | CS課業代寫服務"
+    default: "香港大專CS功課代做 | 專業High Dip Degree程式設計作業協助",
+    template: "%s | 香港大專CS功課代做"
   },
-  description: "專業的CS課業代寫服務，提供高品質的大學生程式設計作業協助。包含Java, Python, C++, JavaScript等多種程式語言，確保準時交付和學術誠信。",
-  keywords: ["CS課業代寫", "程式設計作業", "大學生作業", "Java代寫", "Python代寫", "C++代寫", "程式設計協助"],
+  description: "專業的香港大專CS功課代做服務，專為High Dip、Degree學生提供高品質的程式設計作業協助。包含Java, Python, C++, JavaScript等多種程式語言，確保準時交付和學術誠信。",
+  keywords: ["香港大專CS功課代做", "High Dip功課", "Degree功課", "香港程式設計作業", "大專作業", "Java代寫", "Python代寫", "C++代寫", "程式設計協助"],
   authors: [{ name: "CS課業代寫服務團隊" }],
   creator: "CS課業代寫服務",
   publisher: "CS課業代寫服務",
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "zh_TW",
     url: "https://www.chan-codeguy.com",
-    title: "CS課業代寫服務 | 專業大學生程式設計作業協助",
-    description: "專業的CS課業代寫服務，提供高品質的大學生程式設計作業協助。",
-    siteName: "CS課業代寫服務",
+    title: "香港大專CS功課代做 | 專業High Dip Degree程式設計作業協助",
+    description: "專業的香港大專CS功課代做服務，專為High Dip、Degree學生提供高品質的程式設計作業協助。",
+    siteName: "香港大專CS功課代做",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CS課業代寫服務 | 專業大學生程式設計作業協助",
-    description: "專業的CS課業代寫服務，提供高品質的大學生程式設計作業協助。",
+    title: "香港大專CS功課代做 | 專業High Dip Degree程式設計作業協助",
+    description: "專業的香港大專CS功課代做服務，專為High Dip、Degree學生提供高品質的程式設計作業協助。",
   },
   robots: {
     index: true,
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   category: 'education',
-  classification: 'CS課業代寫服務',
+  classification: '香港大專CS功課代做服務',
 };
 
 export default function RootLayout({

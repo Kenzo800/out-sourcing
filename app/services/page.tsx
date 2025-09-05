@@ -12,8 +12,8 @@ import { CheckIcon } from '@heroicons/react/20/solid';
 import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
-  title: '服務項目',
-  description: '專業的CS課業代寫服務，涵蓋Java、Python、C++、Web開發、資料結構與演算法等各種程式設計作業。',
+  title: '服務項目 - 香港大專CS功課代做',
+  description: '專業的香港大專CS課業代寫服務，專為High Dip、Degree學生提供Java、Python、C++、Web開發、資料結構與演算法等各種程式設計作業協助。',
 };
 
 const services = [
@@ -170,11 +170,11 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-blue-600">專業服務</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              完整的CS課業解決方案
+              香港大專CS課業解決方案
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              我們提供全面的程式設計課業協助，從基礎語法到複雜專案開發，
-              專業團隊確保每份作業都符合學術標準和業界最佳實踐。
+              我們專為香港大專院校學生提供全面的程式設計課業協助，從High Dip基礎語法到Degree複雜專案開發，
+              專業團隊確保每份作業都符合香港學術標準和業界最佳實踐。
             </p>
           </div>
 
@@ -264,7 +264,7 @@ export default function ServicesPage() {
                 準備開始您的專案了嗎？
               </h2>
               <p className="mt-6 text-lg leading-8 text-blue-100">
-                聯絡我們獲取免費諮詢和詳細報價，專業團隊將為您提供最適合的解決方案。
+                聯絡我們獲取免費諮詢和詳細報價，專業團隊將為您的香港大專CS課業提供最適合的解決方案。
               </p>
               <div className="mt-8 flex items-center justify-center gap-x-6">
                 <a

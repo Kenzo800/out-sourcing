@@ -127,7 +127,7 @@ export default function ServicesSection() {
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 準備開始您的專案了嗎？
               </h2>
-              <p className="mt-6 text-lg leading-8 text-blue-100">
+              <p className="mt-6 text-lg leading-8 text-white">
                 聯絡我們獲取免費諮詢和詳細報價，專業團隊將為您提供最適合的解決方案。
               </p>
               <div className="mt-8 flex items-center justify-center gap-x-6">

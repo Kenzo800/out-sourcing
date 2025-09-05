@@ -13,7 +13,7 @@ const footerNavigation = {
   company: [
     { name: '關於我們', href: '/about' },
     { name: '服務流程', href: '/about#process' },
-    { name: '品質保證', href: '/about#quality' },
+    { name: '核心價值', href: '/about#value' },
     { name: '隱私政策', href: '/privacy' },
     { name: '服務條款', href: '/terms' },
   ],

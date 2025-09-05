@@ -101,7 +101,7 @@ body {
 }
 
 .article-content p {
-  color: #374151;
+  color: #1f2937;
   margin-bottom: 1rem;
   line-height: 1.75;
 }
@@ -121,7 +121,7 @@ body {
 }
 
 .article-content li {
-  color: #374151;
+  color: #1f2937;
   margin-bottom: 0.5rem;
 }
 
@@ -153,7 +153,7 @@ body {
   border-left: 4px solid #3b82f6;
   padding-left: 1rem;
   font-style: italic;
-  color: #6b7280;
+  color: #374151;
   margin-bottom: 1rem;
 }
 
@@ -391,11 +391,6 @@ nav button {
   position: relative;
   z-index: 51;
   pointer-events: auto;
-}
-
-/* 確保背景裝飾不會干擾互動 */
-.isolate {
-  isolation: isolate;
 }
 
 /* 列印樣式 */

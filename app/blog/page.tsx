@@ -40,59 +40,59 @@ const articles = [
   },
   {
     id: 3,
-    title: 'React前端開發最佳實踐',
-    slug: 'react-frontend-best-practices',
-    excerpt: '學習現代React開發的最佳實踐，包含Hooks、狀態管理、效能優化和測試策略。',
+    title: 'React Hooks 深度解析與最佳實踐',
+    slug: 'react-hooks-deep-dive',
+    excerpt: '深入理解React Hooks的工作原理，掌握useState、useEffect、useContext等核心Hook的使用技巧和最佳實踐。',
     content: '',
-    category: 'Web開發',
+    category: 'React',
     author: '王工程師',
     publishedAt: new Date('2024-01-10'),
     readTime: 18,
-    tags: ['React', 'JavaScript', '前端開發'],
-    featured: false,
+    tags: ['React', 'Hooks', '前端開發'],
+    featured: true,
   },
   {
     id: 4,
-    title: 'C++記憶體管理深度解析',
-    slug: 'cpp-memory-management',
-    excerpt: '理解C++的記憶體管理機制，包含指標、智慧指標、RAII原則和記憶體洩漏的預防。',
+    title: 'Node.js 後端開發實戰指南',
+    slug: 'nodejs-backend-development-guide',
+    excerpt: '從零開始建立Node.js後端服務，包含Express框架、資料庫整合、API設計、身份驗證和部署等實用技巧。',
     content: '',
-    category: 'C++',
+    category: 'Node.js',
     author: '陳工程師',
     publishedAt: new Date('2024-01-08'),
     readTime: 25,
-    tags: ['C++', '記憶體管理', '系統程式'],
+    tags: ['Node.js', 'Express', 'MongoDB', '後端開發'],
     featured: false,
   },
   {
     id: 5,
-    title: '資料庫設計原則與正規化',
-    slug: 'database-design-normalization',
-    excerpt: '學習關聯式資料庫的設計原則，了解正規化的重要性和實際應用場景。',
+    title: 'TypeScript 進階開發技巧',
+    slug: 'typescript-advanced-techniques',
+    excerpt: '深入TypeScript進階特性，包含泛型、裝飾器、高階類型、模組系統和實用工具類型等核心概念。',
     content: '',
-    category: '資料庫',
-    author: '張工程師',
+    category: 'TypeScript',
+    author: '林工程師',
     publishedAt: new Date('2024-01-05'),
     readTime: 22,
-    tags: ['資料庫', '正規化', 'SQL'],
+    tags: ['TypeScript', '泛型', '裝飾器', '高階類型'],
     featured: false,
   },
   {
     id: 6,
-    title: 'Node.js後端API開發指南',
-    slug: 'nodejs-backend-api-guide',
-    excerpt: '使用Node.js和Express建立RESTful API，包含路由設計、中介軟體和錯誤處理。',
+    title: 'Docker 容器化部署完整指南',
+    slug: 'docker-containerization-guide',
+    excerpt: '從基礎概念到實戰應用，學習Docker容器化技術，包含映像檔建立、容器管理、Docker Compose和生產環境部署。',
     content: '',
-    category: 'Web開發',
-    author: '王工程師',
+    category: 'DevOps',
+    author: '黃工程師',
     publishedAt: new Date('2024-01-03'),
-    readTime: 16,
-    tags: ['Node.js', 'API', '後端開發'],
+    readTime: 20,
+    tags: ['Docker', '容器化', 'DevOps', '部署'],
     featured: false,
   },
 ];
 
-const categories = ['全部', 'Java', 'Python', 'C++', 'Web開發', '資料庫'];
+const categories = ['全部', 'Java', 'Python', 'React', 'Node.js', 'TypeScript', 'DevOps'];
 
 export default function BlogPage() {
   const featuredArticles = articles.filter(article => article.featured);
@@ -120,7 +120,7 @@ export default function BlogPage() {
               {categories.map((category) => (
                 <button
                   key={category}
-                  className="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-full hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-full hover:bg-blue-100 hover:text-blue-600 transition-colors"
                 >
                   {category}
                 </button>
@@ -151,22 +151,22 @@ export default function BlogPage() {
                           {article.title}
                         </Link>
                       </h3>
-                      <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                      <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-700">
                         {article.excerpt}
                       </p>
                     </div>
                     <div className="relative mt-8 flex items-center gap-x-4">
-                      <div className="flex items-center gap-x-2 text-sm text-gray-500">
+                      <div className="flex items-center gap-x-2 text-sm text-gray-600">
                         <UserIcon className="h-4 w-4" />
                         <span>{article.author}</span>
                       </div>
-                      <div className="flex items-center gap-x-2 text-sm text-gray-500">
+                      <div className="flex items-center gap-x-2 text-sm text-gray-600">
                         <CalendarIcon className="h-4 w-4" />
                         <time dateTime={article.publishedAt.toISOString()}>
                           {format(article.publishedAt, 'yyyy年MM月dd日', { locale: zhTW })}
                         </time>
                       </div>
-                      <div className="flex items-center gap-x-2 text-sm text-gray-500">
+                      <div className="flex items-center gap-x-2 text-sm text-gray-600">
                         <ClockIcon className="h-4 w-4" />
                         <span>{article.readTime}分鐘閱讀</span>
                       </div>
@@ -195,22 +195,22 @@ export default function BlogPage() {
                         {article.title}
                       </Link>
                     </h3>
-                    <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                    <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-700">
                       {article.excerpt}
                     </p>
                   </div>
                   <div className="relative mt-8 flex flex-col gap-y-2">
-                    <div className="flex items-center gap-x-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-x-2 text-sm text-gray-600">
                       <UserIcon className="h-4 w-4" />
                       <span>{article.author}</span>
                     </div>
-                    <div className="flex items-center gap-x-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-x-2 text-sm text-gray-600">
                       <CalendarIcon className="h-4 w-4" />
                       <time dateTime={article.publishedAt.toISOString()}>
                         {format(article.publishedAt, 'yyyy年MM月dd日', { locale: zhTW })}
                       </time>
                     </div>
-                    <div className="flex items-center gap-x-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-x-2 text-sm text-gray-600">
                       <ClockIcon className="h-4 w-4" />
                       <span>{article.readTime}分鐘閱讀</span>
                     </div>
@@ -234,7 +234,7 @@ export default function BlogPage() {
           {/* Newsletter Section */}
           <div className="mx-auto mt-20 max-w-2xl bg-gray-50 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">訂閱學習資源</h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-700 mb-6">
               獲取最新的程式設計教學文章和學習資源，讓我們陪伴您的程式設計學習之路。
             </p>
             <div className="flex max-w-md mx-auto gap-x-4">

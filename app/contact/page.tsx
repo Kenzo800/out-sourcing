@@ -6,13 +6,13 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { 
-  ClockIcon 
+  ClockIcon,
 } from '@heroicons/react/24/outline';
 import Footer from '../components/Footer';
 
 const contactSchema = z.object({
   name: z.string().min(1, '請輸入您的姓名'),
-  email: z.string().email('請輸入有效的電子郵件'),
+  telegram: z.string().min(1, '請輸入您的 Telegram 帳號'),
   subject: z.string().min(1, '請選擇作業類型'),
   urgency: z.string().min(1, '請選擇緊急程度'),
   description: z.string().min(10, '請詳細描述您的作業需求（至少10個字）'),
@@ -80,14 +80,27 @@ export default function ContactPage() {
   const onSubmit = async (data: ContactForm) => {
     setIsSubmitting(true);
     
-    // 模擬API調用
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('表單數據:', data);
+      // 調用 Telegram Bot API
+      const response = await fetch('/api/telegram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || '發送失敗');
+      }
+
+      console.log('表單數據已發送到 Telegram:', data);
       setSubmitSuccess(true);
       reset();
     } catch (error) {
       console.error('提交失敗:', error);
+      alert('發送失敗，請稍後再試或直接聯絡我們的 Telegram 客服');
     } finally {
       setIsSubmitting(false);
     }
@@ -141,11 +154,11 @@ export default function ContactPage() {
 
   return (
     <>
-      <div className="bg-white py-24 sm:py-32">
+      <div className="bg-gradient-to-br from-blue-100 via-white to-purple-200 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {/* Header */}
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-blue-600">聯絡我們</h2>
+            <h1 className="text-base font-semibold leading-7 text-blue-600">聯絡我們</h1>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               取得專業諮詢和報價
             </p>
@@ -156,7 +169,7 @@ export default function ContactPage() {
 
           <div className="mx-auto mt-16 max-w-7xl lg:grid lg:grid-cols-2 lg:gap-x-12">
             {/* Contact Info */}
-            <div className="mb-12 lg:mb-0">
+            <div className="mb-12 border border-gray-200 p-8 bg-white rounded-2xl lg:mb-0">
               <h3 className="text-2xl font-bold text-gray-900 mb-8">聯絡資訊</h3>
               <div className="space-y-6">
                 {contactInfo.map((info) => (
@@ -197,19 +210,21 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">需求諮詢表單</h3>
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-xl border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                需求諮詢表單
+              </h3>
               
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 text-gray-900">
                 {/* Name */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
                     姓名 *
                   </label>
                   <input
                     {...register('name')}
                     type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
                     placeholder="請輸入您的姓名"
                   />
                   {errors.name && (
@@ -217,25 +232,28 @@ export default function ContactPage() {
                   )}
                 </div>
 
-                {/* Email */}
+                {/* Telegram */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    電子郵件 *
+                  <label htmlFor="telegram" className="block text-sm font-medium text-gray-900 mb-2">
+                    Telegram 帳號 *
                   </label>
                   <input
-                    {...register('email')}
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="your@email.com"
+                    {...register('telegram')}
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                    placeholder="@username"
                   />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                  <p className="mt-1 text-xs text-gray-500">
+                    帳號找法：Telegram &gt; Settings &gt; Username &gt; @xxx
+                  </p>
+                  {errors.telegram && (
+                    <p className="mt-1 text-sm text-red-600">{errors.telegram.message}</p>
                   )}
                 </div>
 
                 {/* Subject */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-2">
                     作業類型 *
                   </label>
                   <select
@@ -254,12 +272,12 @@ export default function ContactPage() {
 
                 {/* Urgency */}
                 <div>
-                  <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="urgency" className="block text-sm font-medium text-gray-900 mb-2">
                     緊急程度 *
                   </label>
                   <select
                     {...register('urgency')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
                   >
                     <option value="">請選擇緊急程度</option>
                     {urgencyLevels.map((level) => (
@@ -275,13 +293,13 @@ export default function ContactPage() {
 
                 {/* Deadline */}
                 <div>
-                  <label htmlFor="deadline" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="deadline" className="block text-sm font-medium text-gray-900 mb-2">
                     截止日期 *
                   </label>
                   <input
                     {...register('deadline')}
                     type="date"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
                   />
                   {errors.deadline && (
                     <p className="mt-1 text-sm text-red-600">{errors.deadline.message}</p>
@@ -290,12 +308,12 @@ export default function ContactPage() {
 
                 {/* Budget */}
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="budget" className="block text-sm font-medium text-gray-900 mb-2">
                     預算範圍
                   </label>
                   <select
                     {...register('budget')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
                   >
                     <option value="">請選擇預算範圍（可選）</option>
                     <option value="under-500">$500 以下</option>
@@ -308,13 +326,13 @@ export default function ContactPage() {
 
                 {/* Description */}
                 <div>
-                  <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
-                    詳細需求 *
+                  <label htmlFor="description" className="block text-sm font-medium text-gray-900 mb-2">
+                    詳細需求 * (可留下其他聯絡方式)
                   </label>
                   <textarea
                     {...register('description')}
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
                     placeholder="請詳細描述您的作業需求，包含：&#10;- 作業內容和要求&#10;- 使用的程式語言或框架&#10;- 特殊要求或限制&#10;- 需要的檔案格式&#10;- 其他相關資訊"
                   />
                   {errors.description && (
@@ -326,7 +344,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                 >
                   <svg
                     viewBox="0 0 24 24"

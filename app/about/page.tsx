@@ -16,33 +16,22 @@ export const metadata: Metadata = {
 
 const team = [
   {
-    name: '張工程師',
-    role: 'Java/Spring 專家',
-    experience: '8年',
-    education: '台大資工碩士',
-    specialties: ['企業級應用', 'Spring Boot', '微服務架構'],
+    name: 'CityU',
+    image: '/images/CityU.png',
   },
   {
-    name: '李工程師',
-    role: 'Python/ML 專家',
-    experience: '6年',
-    education: '清大資工博士',
-    specialties: ['機器學習', '數據分析', 'Django開發'],
+    name: 'UST',
+    image: '/images/UST.png',
   },
   {
-    name: '王工程師',
-    role: '全端開發專家',
-    experience: '7年',
-    education: '交大資工碩士',
-    specialties: ['React/Vue.js', 'Node.js', '系統架構'],
+    name: 'HKSTP',
+    image: '/images/HKSTP.png',
   },
   {
-    name: '陳工程師',
-    role: 'C++/演算法專家',
-    experience: '9年',
-    education: '成大資工博士',
-    specialties: ['系統程式', '演算法優化', '競賽程式'],
+    name: 'IBM',
+    image: '/images/IBM.webp',
   },
+  
 ];
 
 const stats = [
@@ -122,73 +111,92 @@ export default function AboutPage() {
   return (
     <>
       <div className="bg-white">
-        {/* Hero Section */}
-        <div className="relative isolate px-6 pt-14 lg:px-8">
-          <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56">
-            <div className="text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+        {/* Combined Hero & Stats Section */}
+        <div className="bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 relative isolate px-6 pt-14 lg:px-8 overflow-hidden">
+          {/* Background Effects */}
+          <div
+            className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 pointer-events-none"
+            aria-hidden="true"
+          >
+            <div
+              className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#4f46e5] to-[#06b6d4] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+            />
+          </div>
+          
+          {/* Animated Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}></div>
+          </div>
+
+          <div className="relative z-10 mx-auto max-w-7xl py-24 sm:py-32 lg:py-40">
+            {/* Hero Content */}
+            <div className="text-center mb-16">
+              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl mb-6">
                 專業可靠的
-                <span className="text-blue-600">CS課業夥伴</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"> CS課業夥伴</span>
               </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
+              <p className="mt-6 text-xl leading-8 text-gray-300 max-w-3xl mx-auto">
                 我們是一群熱愛程式設計的專業工程師，致力於幫助學生在CS學習路上獲得更好的成績和理解。
                 憑藉深厚的技術功底和豐富的教學經驗，為每位客戶提供最專業的服務。
               </p>
             </div>
-          </div>
-        </div>
 
-        {/* Stats Section */}
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
-          <div className="mx-auto max-w-2xl lg:max-w-none">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                值得信賴的數據
-              </h2>
-              <p className="mt-4 text-lg leading-8 text-gray-600">
-                數字說明一切，我們用成果證明專業
-              </p>
+            {/* Stats Grid */}
+            <div className="mx-auto max-w-4xl">
+              <div className="text-center mb-12">
+                <h2 className="text-2xl font-semibold text-gray-200 mb-2">
+                  值得信賴的數據
+                </h2>
+                <p className="text-gray-400">
+                  數字說明一切，我們用成果證明專業
+                </p>
+              </div>
+              
+              <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+                {stats.map((stat, index) => (
+                  <div 
+                    key={stat.label} 
+                    className="relative group"
+                    style={{animationDelay: `${index * 0.1}s`}}
+                  >
+                    {/* Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+                    
+                    {/* Card */}
+                    <div className="relative flex flex-col bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 hover:-translate-y-2">
+                      <dt className="text-sm font-medium text-gray-300 mb-2">{stat.label}</dt>
+                      <dd className="order-first text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        {stat.value}
+                      </dd>
+                    </div>
+                  </div>
+                ))}
+              </dl>
             </div>
-            <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="flex flex-col bg-gray-400/5 p-8">
-                  <dt className="text-sm font-semibold leading-6 text-gray-600">{stat.label}</dt>
-                  <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                    {stat.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+          </div>
+
+          {/* Bottom Background Effect */}
+          <div
+            className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] pointer-events-none"
+            aria-hidden="true"
+          >
+            <div
+              className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#4f46e5] to-[#06b6d4] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+            />
           </div>
         </div>
 
-        {/* Values Section */}
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 bg-gray-50">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-blue-600">我們的價值</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              為什麼選擇我們
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              我們堅持的核心價值和服務理念，確保每位客戶都能獲得最優質的體驗。
-            </p>
-          </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-              {values.map((value) => (
-                <div key={value.title} className="flex flex-col">
-                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                    <value.icon className="h-5 w-5 flex-none text-blue-600" aria-hidden="true" />
-                    {value.title}
-                  </dt>
-                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                    <p className="flex-auto">{value.description}</p>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
+        
 
         {/* Team Section */}
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
@@ -197,40 +205,24 @@ export default function AboutPage() {
               專業團隊
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              我們的核心團隊由經驗豐富的軟體工程師組成，每位成員都在特定領域有深度專精。
+              我們的核心團隊來自各五湖四海，每位成員都在特定領域有深度專精。
             </p>
           </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <div className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-8 lg:grid-cols-4">
             {team.map((member) => (
-              <div key={member.name} className="bg-white p-6 rounded-lg shadow-sm border">
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold text-gray-900">{member.name}</h3>
-                  <p className="text-blue-600 font-medium">{member.role}</p>
-                </div>
-                <div className="space-y-2 text-sm text-gray-600">
-                  <p><span className="font-semibold">經驗：</span>{member.experience}</p>
-                  <p><span className="font-semibold">學歷：</span>{member.education}</p>
-                  <div>
-                    <span className="font-semibold">專長：</span>
-                    <div className="mt-1 flex flex-wrap gap-1">
-                      {member.specialties.map((specialty) => (
-                        <span
-                          key={specialty}
-                          className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800"
-                        >
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+              <div key={member.name} className="flex justify-center items-center">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="h-24 w-auto object-contain max-w-full"
+                />
               </div>
             ))}
           </div>
         </div>
 
         {/* Process Section */}
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 bg-gray-50">
+        <div id="process" className="mx-auto max-w-7xl px-6 lg:px-8 py-24 bg-gray-50">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               工作流程
@@ -256,6 +248,52 @@ export default function AboutPage() {
           </div>
         </div>
 
+
+        {/* Values Section */}
+        <div id="value" className="relative py-20 px-6 lg:px-8 overflow-hidden" style={{
+          backgroundColor: '#1e3a8a',
+          // clipPath: 'polygon(50% 0, 100% 10%, 100% 90%, 50% 100%, 0 90%, 0 10%)'
+        }}>
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-indigo-900 opacity-90"></div>
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-10"
+              style={{
+                backgroundImage: 'url(/images/views.jpg)',
+              }}
+            ></div>
+          </div>
+          
+          <div className="relative z-10 mx-auto max-w-7xl">
+            <div className="mx-auto max-w-2xl lg:text-center">
+              <h2 className="text-base font-semibold leading-7 text-blue-300">我們的價值</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                為什麼選擇我們
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+                我們堅持的核心價值和服務理念，確保每位客戶都能獲得最優質的體驗。
+              </p>
+            </div>
+            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                {values.map((value) => (
+                  <div key={value.title} className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                    <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
+                      <value.icon className="h-5 w-5 flex-none text-blue-300" aria-hidden="true" />
+                      {value.title}
+                    </dt>
+                    <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-200">
+                      <p className="flex-auto">{value.description}</p>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        
         {/* CTA Section */}
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
           <div className="mx-auto max-w-2xl text-center">
@@ -267,10 +305,19 @@ export default function AboutPage() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                href="/contact"
-                className="rounded-md bg-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 transition-colors"
+                href="https://t.me/payfortimecs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md bg-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 transition-colors inline-flex items-center gap-2"
               >
-                免費諮詢
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                立即查詢
               </a>
               <a href="/services" className="text-lg font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
                 查看服務 <span aria-hidden="true">→</span>

@@ -8,44 +8,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'daily' as const,
+      changeFrequency: 'weekly' as const,
       priority: 1,
     },
     {
       url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      priority: 1,
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
+      changeFrequency: 'weekly' as const,
+      priority: 1,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
+      changeFrequency: 'weekly' as const,
+      priority: 1,
     },
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 0.7,
+      changeFrequency: 'weekly' as const,
+      priority: 1,
     },
     {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
+      changeFrequency: 'weekly' as const,
+      priority: 1,
     },
     {
       url: `${baseUrl}/terms`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
+      changeFrequency: 'weekly' as const,
+      priority: 1,
     },
   ];
 
@@ -53,17 +53,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts = [
     'java-oop-complete-guide',
     'python-data-structures-algorithms',
-    'react-frontend-best-practices',
-    'cpp-memory-management',
-    'database-design-normalization',
-    'nodejs-backend-api-guide',
+    'react-hooks-deep-dive',
+    'nodejs-backend-development-guide',
+    'typescript-advanced-techniques',
+    'docker-containerization-guide',
   ];
 
   const blogRoutes = blogPosts.map(slug => ({
     url: `${baseUrl}/blog/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: 0.6,
+    priority: 1,
   }));
 
   return [...routes, ...blogRoutes];

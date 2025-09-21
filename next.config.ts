@@ -21,9 +21,6 @@ const nextConfig: NextConfig = {
   // 壓縮配置
   compress: true,
   
-  // 啟用 SWC 最小化
-  swcMinify: true,
-  
   // 效能監控
   poweredByHeader: false,
 };

@@ -263,13 +263,60 @@ body {
   transform: translateZ(0);
 }
 
-/* Transition 瀏覽器前綴 */
+/* Transition 瀏覽器前綴 - 優化效能 */
 .transition-colors {
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-  -moz-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-  -ms-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  -webkit-transition: color 0.1s ease-out, background-color 0.1s ease-out, border-color 0.1s ease-out;
+  -moz-transition: color 0.1s ease-out, background-color 0.1s ease-out, border-color 0.1s ease-out;
+  -ms-transition: color 0.1s ease-out, background-color 0.1s ease-out, border-color 0.1s ease-out;
+  -o-transition: color 0.1s ease-out, background-color 0.1s ease-out, border-color 0.1s ease-out;
+  transition: color 0.1s ease-out, background-color 0.1s ease-out, border-color 0.1s ease-out;
+}
+
+/* 效能優化：減少重繪 */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-auto {
+  will-change: auto;
+}
+
+/* 滾動效能優化 */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* GPU 加速優化 */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 減少重繪的滾動容器 */
+.scroll-container {
+  contain: layout style paint;
+  will-change: scroll-position;
+}
+
+/* 優化模糊效果效能 */
+.blur-optimized {
+  filter: blur(8px);
+  transform: translateZ(0);
+  will-change: filter;
+}
+
+/* 減少複雜動畫 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Box-shadow 深度增強 */
